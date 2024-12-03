@@ -39,6 +39,12 @@ public class MyString {
      */
     public static boolean contains(String str1, String str2) {
         int str2Length = str2.length();
+        if (str2Length == 0) {
+            return true;
+        }
+        if (str2Length > str1.length()) {
+            return false;
+        }
         char firstChar = str2.charAt(0);
 
         for (int i = 0; i <= str1.length() - str2Length; i++) {
@@ -46,8 +52,6 @@ public class MyString {
             int j = i;
             if (str1.charAt(i) == firstChar) {
                 while (k < str2Length && str1.charAt(j) == str2.charAt(k)) {
-                    char c1 = str2.charAt(k);
-                    char c2 = str1.charAt(j);
                     j++;
                     k++;
                 }
